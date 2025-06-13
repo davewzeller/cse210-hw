@@ -1,4 +1,5 @@
 using System;
+using System.Formats.Asn1;
 
 class Program
 {
@@ -13,38 +14,41 @@ class Program
 
         int number = int.Parse(percentage);
 
+
         if (number >= 90)
         {
             letter = "A";
-            Console.Write($"Your grade is an {letter} ");
-            Console.WriteLine(pass);
         }
 
         else if (number >= 80)
         {
             letter = "B";
-            Console.Write($"Your Grade is a {letter} "); ;
         }
 
         else if (number >= 70)
         {
             letter = "C";
-            Console.Write($"Your Grade is a {letter} "); ;
         }
 
         else if (number >= 60)
         {
             letter = "D";
-            Console.Write($"Your Grade is a {letter} ");
-            Console.WriteLine(failed);
         }
         else
         {
+            Console.Write(" ");
+        }
 
-            Console.Write($"Your Grade is an {letter} "); ;
+        Console.Write($"Your grade is an {letter}, ");
+        if (number >= 70)
+        {
+            Console.WriteLine(pass);
+        }
+        else
+        {
             Console.WriteLine(failed);
         }
-      //  Console.WriteLine();
-      //  Console.Write($"Same  {letter} {number} {failed}");
+        //  Console.WriteLine();
+        //  Console.Write($"Same  {letter} {number} {failed}");
     }
 }
