@@ -25,7 +25,7 @@ class Program
             number.Add(numberAdd);
             number.Remove(0);
 
-        }
+      }
 
 
         int sum = number.Sum();
