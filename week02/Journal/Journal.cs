@@ -1,25 +1,34 @@
+using System.Globalization;
+
 public class Journal
 {
 
+   
     public string _entries;
 
-    public void AddEntry()
+  
+
+    public static void AddEntry()
     {
+        Console.WriteLine("AddEntry");
         return;
     }
 
-    public void DisplayAll()
+    public static void DisplayAll()
     {
+        Console.WriteLine("Display");
         return;
     }
 
-    public void SaveToFile(string file)
+    public static void SaveToFile()
     {
+        Console.WriteLine("Save");
         return;
     }
 
-    public void LoadFromFile(String file)
+    static public void LoadFromFile()
     {
+        Console.WriteLine("Load");
         return;
     }
 
