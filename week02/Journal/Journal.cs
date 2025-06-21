@@ -1,21 +1,26 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
 public class Journal
 {
 
-   
-    public string _entries;
 
-  
 
     public static void AddEntry()
     {
-        Console.WriteLine("AddEntry");
-        return;
+
+
+
+        Console.WriteLine("man this is hard");
+
     }
 
     public static void DisplayAll()
+
     {
+       
         Console.WriteLine("Display");
         return;
     }

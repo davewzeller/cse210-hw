@@ -1,16 +1,24 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
 public class Entry
 {
-
-    public string _date;
-    public string _promptText;
-
-    public string _entryText;
+    string _date;
 
 
-    public void Display()
+
+    //public string _entries;
+
+    public static void DisplayEntry()
     {
+        DateTime now = DateTime.Now;
 
         
-        return;
+        string _date = now.ToString("MMMM dd, yyyy");
+
+        Console.WriteLine($"{_date}");
+      
     }
 }

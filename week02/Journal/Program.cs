@@ -1,7 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
-
+using System.IO;
 class Program
 {
 
@@ -24,6 +25,8 @@ class Program
 
         if (_entries == "1")
         {
+
+            Entry.DisplayEntry();
             Journal.AddEntry();
 
         }
@@ -38,9 +41,9 @@ class Program
         }
         else if (_entries == "4")
         {
-           Journal.SaveToFile();
+            Journal.SaveToFile();
         }
-        else 
+        else
         {
             Console.WriteLine("quit");
         }
