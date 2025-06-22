@@ -12,7 +12,7 @@ public class Entry
 
     public string _entries;
 
-    public static void DisplayEntry()
+    public static string DisplayEntry()
     {
         DateTime now = DateTime.Now;
 
@@ -32,6 +32,6 @@ public class Entry
         string result = SB.ToString();
 
         Console.WriteLine(result);
-        
+        return result;
     }
 }

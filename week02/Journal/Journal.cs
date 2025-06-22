@@ -3,6 +3,8 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.IO;
+
+
 public class Journal
 {
 
@@ -14,15 +16,17 @@ public class Journal
 
         Entry.DisplayEntry();
         List<string> _entry = new List<string>();
-        
-        
+
+        //Console.WriteLine(result);
+
+
 
     }
 
     public static void DisplayAll()
 
     {
-       
+
         Console.WriteLine("Display");
         return;
     }
@@ -36,12 +40,12 @@ public class Journal
         Console.WriteLine("What file do you want to save to? ");
         _mytext = Console.ReadLine();
 
-       using (StreamWriter outputFile = new StreamWriter(_mytext))
+        using (StreamWriter outputFile = new StreamWriter(_mytext))
         {
             outputFile.WriteLine($" how are you today?");
         }
-             
-      
+
+
 
 
         return;
@@ -65,7 +69,7 @@ public class Journal
 
 
 
-    }    
+    }
 
 
 }
