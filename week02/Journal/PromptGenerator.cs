@@ -24,7 +24,7 @@ public class PromptGenerator
         int magic = randomGenerator.Next(1, 6);
 
 
-        Console.WriteLine($"{magic}");
+        //Console.WriteLine($"{magic}");
         Console.Write($"{_prompt[magic]}");
     }
 

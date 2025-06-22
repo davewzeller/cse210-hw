@@ -5,8 +5,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.IO;
 public class Entry
 {
-    string _date;
-
+    public string _date;
+    public string _entryText;
 
 
     //public string _entries;
@@ -15,10 +15,13 @@ public class Entry
     {
         DateTime now = DateTime.Now;
 
-        
+
         string _date = now.ToString("MMMM dd, yyyy");
 
         Console.WriteLine($"{_date}");
-      
+        PromptGenerator._prompt();
+        string _entryText = Console.ReadLine();
+        
+        
     }
 }

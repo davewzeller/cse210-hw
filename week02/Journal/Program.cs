@@ -7,6 +7,8 @@ class Program
 {
 
     static void Main(string[] args)
+
+    
     {
         Console.WriteLine("Please select one of the following choices");
         Console.WriteLine("1. Write");
@@ -26,9 +28,11 @@ class Program
         if (_entries == "1")
         {
 
-            
-           
+
+
             Journal.AddEntry();
+
+
 
         }
         else if (_entries == "2")
@@ -44,14 +48,17 @@ class Program
         {
             Journal.SaveToFile();
         }
-        else
+        else if (_entries == "5")
         {
             Console.WriteLine("quit");
         }
-       // else
-       // {
-       //     Console.WriteLine("Try again");
-       //     _entries = Console.ReadLine();
-       // }
+        else
+        {
+            Console.WriteLine("Try again");
+            _entries = Console.ReadLine();
+        }
+
+
     }
+    
 }
