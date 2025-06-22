@@ -12,8 +12,9 @@ public class Journal
     {
 
 
-
-        Console.WriteLine("man this is hard");
+        Entry.DisplayEntry();
+        PromptGenerator._prompt();
+        string _journalEntry = Console.ReadLine();
 
     }
 
@@ -27,6 +28,7 @@ public class Journal
 
     public static void SaveToFile()
     {
+
         Console.WriteLine("Save");
         return;
     }

@@ -26,7 +26,8 @@ class Program
         if (_entries == "1")
         {
 
-            Entry.DisplayEntry();
+            
+           
             Journal.AddEntry();
 
         }
