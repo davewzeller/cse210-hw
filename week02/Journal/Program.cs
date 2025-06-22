@@ -8,7 +8,7 @@ class Program
 
     static void Main(string[] args)
 
-    
+
     {
         Console.WriteLine("Please select one of the following choices");
         Console.WriteLine("1. Write");
@@ -18,10 +18,12 @@ class Program
         Console.WriteLine("5. Quit");
         Console.WriteLine("What would you like to do?");
 
-
+        int test = 0;
         string _entries = Console.ReadLine();
         // int _entries = int.Parse(Number);
+        test = int.Parse(_entries);
 
+       
 
         // Console.WriteLine($"Hi {_entries}");
 
@@ -51,14 +53,17 @@ class Program
         else if (_entries == "5")
         {
             Console.WriteLine("quit");
-        }
-        else
-        {
-            Console.WriteLine("Try again");
-            _entries = Console.ReadLine();
-        }
 
+        }
+        
+
+        //  {
+        // Console.WriteLine("Try again");
+
+        //   }
+        //  Console.WriteLine("WHAT WOULD YOU DO ");
+        //  _entries = Console.ReadLine();
 
     }
-    
+
 }

@@ -15,7 +15,7 @@ public class Journal
         Entry.DisplayEntry();
         List<string> _entry = new List<string>();
         
-
+        
 
     }
 
@@ -50,23 +50,22 @@ public class Journal
     static public void LoadFromFile()
     {
 
-        string bob;
-
-        Console.WriteLine("What file do you want to Load? ");
-        bob = Console.ReadLine();
+        Console.WriteLine("what file do you want to read? ");
+        string bob = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(bob);
-        foreach (string line in lines)
 
+        foreach (string line in lines)
         {
             string[] parts = line.Split(",");
+            string date = parts[0];
 
-            string hotwheels = parts[0];
-            Console.WriteLine(hotwheels);
+            Console.WriteLine(date);
+
         }
 
-        return;
 
-    }
+
+    }    
 
 
 }

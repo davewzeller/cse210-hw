@@ -8,7 +8,7 @@ public class PromptGenerator
 {
 
 
-    public static void _prompt()
+    public static string _prompt()
     {
         List<string> _prompt = new List<string>();
 
@@ -26,6 +26,8 @@ public class PromptGenerator
 
         //Console.WriteLine($"{magic}");
         Console.Write($"{_prompt[magic]}");
+        return _prompt[magic];
+        
     }
 
 
