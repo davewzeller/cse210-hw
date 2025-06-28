@@ -3,43 +3,47 @@ using System;
 using System.Collections.Generic;
 public class Scripture
 {
-    public static Reference _reference;
-    private List<Word> Words;
+    private  Reference _reference;
+    private List<Word> _words;
+    private Random _random = new Random();
+
 
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
-        Words = new List<Word>();
-        foreach (var word in text.Split(' '))
-        {
-            Words.Add(new Word(word));
-        }
-        Console.WriteLine("Cinder is driving me crazy");
+
+
+        _words = text
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(w => new Word(w))
+            .ToList();
+            
     }
 
-    public void HideRandomWords(int numberToHide)
+    public bool AllWordsHidden()
     {
-        var rand = new Random();
-        for (int i = 0; i < numberToHide; i++)
-        {
-            int index = rand.Next(Words.Count);
-            Words[index].Hide();        
-        }
-            Console.WriteLine("Cinder is blocking the monitor");
-    
+        return _words.All(w => w.IsHidden);
+
+
     }
 
-    public void GetDisplayText(string text)
+    public void HideRandomWords(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            int idx = _random.Next(_words.Count);
+            _words[idx].Hide();
+        }
+    }
+
+    public void Display()
 
     {
-        Console.WriteLine("Cinder is blocking the monitor");
-        Console.WriteLine(_reference.ToString());
-        foreach (var word in Words)
         {
-            Console.Write(word.GetDisplayText() + " ");
-
+            Console.WriteLine(_reference);
+            Console.WriteLine(string.Join(" ",
+                _words.Select(w => w.GetDisplayText())));
         }
-        Console.WriteLine(); 
-     
+
     }
 }

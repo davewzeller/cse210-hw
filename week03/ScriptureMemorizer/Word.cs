@@ -1,31 +1,25 @@
-class Word
+public class Word
 {
-    public string _text;
-    public bool _isHidden;
-
+    private readonly string _text;
+    private bool _isHidden;
 
     public Word(string text)
     {
-
-        Console.WriteLine("I am going to take a break");
-    }
-    public void Hide()
-    {
-        Console.WriteLine("What did I due with the glow in the dark rocks");
+        _text = text;
+        _isHidden = false;
     }
 
-    public void Show()
-    {
-        Console.WriteLine("I need to get ride of the algie eater");
-    }
+    // Mark this word as hidden
+    public void Hide() => _isHidden = true;
 
-    public bool IsHidden()
-    {
-        Console.WriteLine("I have 15 yellow fish");
-    }
+    // Indicates whether this word is hidden
+    public bool IsHidden => _isHidden;
 
+    // Returns either underscores or the actual word
     public string GetDisplayText()
     {
-        Console.WriteLine("I need to clean the fish tank");
+        return _isHidden
+            ? new string('_', _text.Length)
+            : _text;
     }
 }
