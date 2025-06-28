@@ -17,6 +17,7 @@ public class Reference
         _book = book;
         _chapter = chapter;
         _verse = verse;
+        Console.WriteLine($"{_book} + {_chapter} + { _verse}");
         Console.WriteLine("bob was her");
     }
 
