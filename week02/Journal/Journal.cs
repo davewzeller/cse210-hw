@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.IO;
+using System.Runtime.ExceptionServices;
 
 
 public class Journal
@@ -26,6 +27,10 @@ public class Journal
     public static void DisplayAll()
 
     {
+        foreach (result in SB)
+        {
+            
+         }
 
         Console.WriteLine("Display");
         return;

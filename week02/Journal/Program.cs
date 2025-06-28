@@ -22,8 +22,9 @@ class Program
         string _entries = Console.ReadLine();
         // int _entries = int.Parse(Number);
         test = int.Parse(_entries);
+        
 
-       
+
 
         // Console.WriteLine($"Hi {_entries}");
 
@@ -53,6 +54,7 @@ class Program
         else if (_entries == "5")
         {
             Console.WriteLine("quit");
+
 
         }
         

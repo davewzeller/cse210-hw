@@ -11,7 +11,7 @@ public class Entry
 
 
     public string _entries;
-
+    private List<Entry> entries = new List<Entry>();
     public static string DisplayEntry()
     {
         DateTime now = DateTime.Now;
@@ -25,11 +25,14 @@ public class Entry
         string _entryText = Console.ReadLine();
 
         StringBuilder SB = new StringBuilder();
+
+
         SB.Append($"{_date}");
         SB.Append($" {_prompt}");
         SB.Append($": {_entryText}");
 
         string result = SB.ToString();
+
 
         Console.WriteLine(result);
         return result;
