@@ -9,17 +9,13 @@ public class Word
         _isHidden = false;
     }
 
-    // Mark this word as hidden
+    // Mark these words as hidden
     public void Hide() => _isHidden = true;
 
     // Indicates whether this word is hidden
     public bool IsHidden => _isHidden;
 
     // Returns either underscores or the actual word
-    public string GetDisplayText()
-    {
-        return _isHidden
-            ? new string('_', _text.Length)
-            : _text;
-    }
+    public string GetDisplayText() =>
+        _isHidden ? new string('_', _text.Length) : _text;
 }

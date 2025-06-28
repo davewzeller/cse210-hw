@@ -36,5 +36,5 @@ public class Reference
                 ? $"{_book} {_chapter}:{_verse}-{_endVerse.Value}"
                 : $"{_book} {_chapter}:{_verse}";
     }
-    
+
 }

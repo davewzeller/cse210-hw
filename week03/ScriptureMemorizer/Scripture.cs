@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 public class Scripture
 {
-    private  Reference _reference;
-    private List<Word> _words;
-    private Random _random = new Random();
+    private readonly Reference _reference;
+    private readonly List<Word> _words;
+    private readonly Random _random = new Random();
 
 
     public Scripture(Reference reference, string text)
@@ -17,25 +17,8 @@ public class Scripture
             .Split(' ', StringSplitOptions.RemoveEmptyEntries)
             .Select(w => new Word(w))
             .ToList();
-            
-    }
-
-    public bool AllWordsHidden()
-    {
-        return _words.All(w => w.IsHidden);
-
 
     }
-
-    public void HideRandomWords(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            int idx = _random.Next(_words.Count);
-            _words[idx].Hide();
-        }
-    }
-
     public void Display()
 
     {
@@ -46,4 +29,15 @@ public class Scripture
         }
 
     }
+    public bool AllWordsHidden() => _words.All(w => w.IsHidden);
+
+    public void HideRandomWords(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            int index = _random.Next(_words.Count);
+            _words[index].Hide();
+        }
+    }
+
 }
