@@ -29,14 +29,21 @@ public class Journal
     public static void DisplayAll()
 
     {
-        foreach (string entry in entries)
-        {
-            Console.WriteLine(entry);
-        }
 
+        if (entries.Count == 0)
+        {
+            Console.WriteLine("didn't find anything");
+        }
+        else
+        {
+            foreach (string entry in entries)
+            {
+                Console.WriteLine(entry);
+            }
+        }
         Console.WriteLine("Display");
         Console.WriteLine();
-        return;
+        
     }
 
     public static void SaveToFile()
