@@ -21,7 +21,7 @@ public class Journal
         //List<string> _entry = new List<string>();
 
         //Console.WriteLine(result);
-        
+
 
 
     }
@@ -29,12 +29,13 @@ public class Journal
     public static void DisplayAll()
 
     {
-        foreach (string entry in entries) 
+        foreach (string entry in entries)
         {
             Console.WriteLine(entry);
         }
 
         Console.WriteLine("Display");
+        Console.WriteLine();
         return;
     }
 
@@ -51,14 +52,16 @@ public class Journal
             {
 
                 outputFile.WriteLine(entry);
+                // Console.WriteLine();
 
 
             }
-            outputFile.WriteLine($" how are you today?");
+            Console.WriteLine();
+            //outputFile.WriteLine($" how are you today?");
         }
 
 
-        Console.WriteLine("I hope this works. ");
+        //Console.WriteLine("I hope this works. ");
 
         //return;
     }
@@ -67,20 +70,24 @@ public class Journal
     {
 
         Console.WriteLine("what file do you want to read? ");
-        string bob = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(bob);
+        string _fileName = Console.ReadLine();
 
-        foreach (string line in lines)
+
+
+        if (File.Exists(_fileName))
         {
-            string[] parts = line.Split(",");
-            string date = parts[0];
+            string[] lines = System.IO.File.ReadAllLines(_fileName);
+            foreach (string line in lines)
+            {
 
-            Console.WriteLine(date);
+                // string date = parts[0];
+                entries.Add(line);
+                Console.WriteLine(line);
+
+            }
 
         }
-
-
-
+        // took too long to locate this missing bracket 
     }
 
 

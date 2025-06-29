@@ -10,6 +10,7 @@ public class PromptGenerator
 
     public static string _prompt()
     {
+        
         List<string> _prompt = new List<string>();
 
         _prompt.Add("Today I found joy in: ");
