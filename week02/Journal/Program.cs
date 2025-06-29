@@ -18,10 +18,10 @@ class Program
         Console.WriteLine("5. Quit");
         Console.WriteLine("What would you like to do?");
 
-        int test = 0;
+       // int test = 0;
         string _entries = Console.ReadLine();
         // int _entries = int.Parse(Number);
-        test = int.Parse(_entries);
+        //test = int.Parse(_entries);
         
 
 

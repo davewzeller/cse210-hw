@@ -9,17 +9,19 @@ using System.Runtime.ExceptionServices;
 public class Journal
 {
 
-
+    private static List<string> entries = new List<string>();
 
     public static void AddEntry()
     {
 
+        string entry = Entry.DisplayEntry();
+        entries.Add(entry);
 
-        Entry.DisplayEntry();
-        List<string> _entry = new List<string>();
+        //Entry.DisplayEntry();
+        //List<string> _entry = new List<string>();
 
         //Console.WriteLine(result);
-
+        
 
 
     }
@@ -27,10 +29,10 @@ public class Journal
     public static void DisplayAll()
 
     {
-        foreach (result in SB)
+        foreach (string entry in entries) 
         {
-            
-         }
+            Console.WriteLine(entry);
+        }
 
         Console.WriteLine("Display");
         return;
