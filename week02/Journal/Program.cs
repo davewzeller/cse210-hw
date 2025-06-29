@@ -15,6 +15,7 @@ class Program
         while (running)
 
         {
+            Console.WriteLine();
             Console.WriteLine("Please select one of the following choices");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
@@ -22,6 +23,7 @@ class Program
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
             Console.WriteLine("What would you like to do?");
+            Console.WriteLine();
 
             // int test = 0;
             string _entries = Console.ReadLine();

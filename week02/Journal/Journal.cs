@@ -29,7 +29,7 @@ public class Journal
     public static void DisplayAll()
 
     {
-
+        Console.WriteLine();
         if (entries.Count == 0)
         {
             Console.WriteLine("didn't find anything");
@@ -41,9 +41,9 @@ public class Journal
                 Console.WriteLine(entry);
             }
         }
-        Console.WriteLine("Display");
+       // Console.WriteLine("Display");
         Console.WriteLine();
-        
+
     }
 
     public static void SaveToFile()
@@ -89,7 +89,7 @@ public class Journal
 
                 // string date = parts[0];
                 entries.Add(line);
-                Console.WriteLine(line);
+                //Console.WriteLine(line);
 
             }
 
