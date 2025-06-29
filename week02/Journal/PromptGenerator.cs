@@ -21,8 +21,8 @@ public class PromptGenerator
 
 
         Random randomGenerator = new Random();
-        int magic = randomGenerator.Next(1, 6);
-
+        int magic = randomGenerator.Next(0, _prompt.Count);
+        // thank goodness for my brother in law. 
 
         //Console.WriteLine($"{magic}");
         Console.Write($"{_prompt[magic]}");

@@ -42,20 +42,25 @@ public class Journal
     {
         string _mytext;
 
-
-
         Console.WriteLine("What file do you want to save to? ");
         _mytext = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(_mytext))
         {
+            foreach (string entry in entries)
+            {
+
+                outputFile.WriteLine(entry);
+
+
+            }
             outputFile.WriteLine($" how are you today?");
         }
 
 
+        Console.WriteLine("I hope this works. ");
 
-
-        return;
+        //return;
     }
 
     static public void LoadFromFile()
