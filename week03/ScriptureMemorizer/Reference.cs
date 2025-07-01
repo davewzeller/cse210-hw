@@ -27,7 +27,7 @@ public class Reference
         _chapter = chapter;
         _verse = startVerse;
         _endVerse = endVerse;
-        Console.Write("bob is the full verse");
+      //  Console.Write("bob is the full verse");
     }
 
     public override string ToString()

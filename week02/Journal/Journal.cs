@@ -64,6 +64,7 @@ public class Journal
 
             }
             Console.WriteLine();
+            Console.Clear(); 
             //outputFile.WriteLine($" how are you today?");
         }
 
@@ -94,8 +95,9 @@ public class Journal
             }
 
         }
+        
         // took too long to locate this missing bracket 
     }
 
-
+  
 }
