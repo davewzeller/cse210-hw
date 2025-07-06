@@ -22,7 +22,15 @@ public class Order
         {
             total += product.GetTotalCost();
         }
-        total += _customer.LivesInUSA() ? 5 : 35;
+
+        if (_customer.GetAddress().IsInUSA())
+        {
+            total += 5; // USA shipping cost
+        }
+        else
+        {
+            total += 35; // International shipping cost
+        }
         return total;
     }
 

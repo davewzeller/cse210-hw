@@ -16,9 +16,9 @@ public class Address
 
     public bool IsInUSA()
     {
-        return _country.ToLower() == "usa";
+        return _country.Trim().ToUpper() == "USA";
     }
-
+    
     public string GetFullAddress()
     {
         return $"{_street}\n{_city}, {_state}\n{_country}";

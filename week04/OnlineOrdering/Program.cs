@@ -22,7 +22,7 @@ class Program
 
 
         Address address2 = new Address("Cantacuzio Castle", "Palatul Monteoru", "Bucharest 010001", "Romania");
-        Customer customer2 = new Customer("Wednesday Addams", address1);
+        Customer customer2 = new Customer("Wednesday Addams", address2);
 
         Product p3 = new Product("Switch Blade", "4AKQXIXT", 13.99, 1);
         Product p4 =  new Product("Emergency Laceration Closures", "CLOZEXINC", 34.99, 1);
