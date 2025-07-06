@@ -2,7 +2,7 @@ using System.Transactions;
 
 public class Video
 {
-    public string _title;
+    public string _title ;
     public string _author;
     public int _lengthInSeconds;
 
@@ -15,14 +15,14 @@ public class Video
         _lengthInSeconds = lengthInSecondsInput;
     }
 
-    public void AddComent(Comment comment)
+    public void AddComment(Comment comment)
     {
          comments.Add(comment);
     }
 
-    public int GetComentCount()
+    public int GetCommentCount()
     {
-        return comments.Count();
+        return comments.Count;
     }
 
     public List<Comment> GetComments()
