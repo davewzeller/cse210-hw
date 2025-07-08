@@ -3,10 +3,19 @@ using System.Text;
 
 public class Assignment
 {
-    private string _textbookSection;
-    private string _problems;
+    private string _name;
+    private string _topic;
+
+    public Assignment(string nameinput, string topicinput)
+
+    {
+        _name = nameinput;
+        _topic = topicinput;
+    }
     public void GetSummary()
     {
-        Console.WriteLine("Hi Dave");
+
+
+        Console.WriteLine($"Hi Dave {_name}, {_topic}");
     }
 }
