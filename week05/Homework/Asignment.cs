@@ -12,10 +12,10 @@ public class Assignment
         _name = nameinput;
         _topic = topicinput;
     }
-    public void GetSummary()
+    public string GetSummary()
     {
 
 
-        Console.WriteLine($"Hi Dave {_name}, {_topic}");
+        return($"{_name} --- {_topic}");
     }
 }
