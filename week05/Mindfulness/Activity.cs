@@ -1,44 +1,54 @@
-using System.Reflection.Emit;
-using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 public class Activity
 
 {
 
     private string _name;
-    private string _discription;
+    private string _description;
     private int _duration;
 
 
-    public Activity(string name, string desciption)
+    public Activity(string name, string description)
     {
         _name = name;
-        _discription = desciption;
+        _description = description;
 
     }
 
     public void DisplayStart()
     {
 
-
+        Console.Clear();
+        Console.WriteLine($"Starting {_name} Activity...");
+        Console.WriteLine(_description);
+        Console.WriteLine("Enter the Duration in seconds: ");
+        _duration = int.Parse(Console.ReadLine() ?? "60");
+        Console.WriteLine("Get ready to Start ");
+        ShowSpinner(3);
     }
+
 
     public void DisplayEnd()
     {
-
-
+        Console.WriteLine("Good Job!");
+        ShowSpinner(2);
+        Console.WriteLine($"You have completed the {_name} activity for {_duration} seconds.");
+        ShowSpinner(3);
     }
 
     protected int GetDuration() => _duration;
 
     protected void ShowSpinner(int seconds)
-
     {
-        for (int i = 0; i < seconds; i++)
+        string[] spinner = { "|", "/", "-", "\\" };
+        for (int i = 0; i < seconds * 4; i++)
         {
-
-            Console.WriteLine(".");
-            Thread.Sleep(1000);
+            Console.Write(spinner[i % spinner.Length]);
+            Thread.Sleep(250);
+            Console.Write("\b");
         }
         Console.WriteLine();
     }
