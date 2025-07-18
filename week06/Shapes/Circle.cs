@@ -1,11 +1,11 @@
 public class Circle : Shapes
 {
-    private double _side;
+    private double _radius;
 
-    public override float GetArea()
+    public override double GetArea()
     {
 
-        
+        return _radius * _radius * Math.PI;
 
     }
 
