@@ -8,12 +8,14 @@ class Program
         List<Shape> shape = new List<Shape>();
         //Console.WriteLine("Hello World! This is the Shapes Project.");
 
-        Circle s1 = new Circle("Blue", 3);
+        Circle s1 = new Circle("Blue", 10);
         shape.Add(s1);
 
-        Square s2 = new Square("pink", 3);
+        Square s2 = new Square("Purple", 3);
         shape.Add(s2);
 
+        Rectangle s3 = new Rectangle("Black", 4, 5);
+        shape.Add(s3);
 
         foreach (Shape s in shape)
         {

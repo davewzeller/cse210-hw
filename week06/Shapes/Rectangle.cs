@@ -1,15 +1,17 @@
-public class Square : Shape
+public class Rectangle : Shape
 {
-    private double _side;
+    private double _side1;
+    private double _side2;
 
-    public Square(string colorinput, double sideInput) : base(colorinput)
+    public Rectangle(string colorinput, double side1Input, double side2Input) : base(colorinput)
     {
-        _side = sideInput;
+        _side1 = side1Input;
+        _side2 = side2Input;
     }
     public override double GetArea()
     {
 
-        return _side * _side;
+        return _side1 * _side2;
 
     }
 
