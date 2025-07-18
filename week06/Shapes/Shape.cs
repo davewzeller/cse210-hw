@@ -1,8 +1,8 @@
-public abstract class Shapes
+public abstract class Shape
 {
     private string _color;
 
-    public Shapes(string colorinput)
+    public Shape(string colorinput)
     {
         
         _color = colorinput;
