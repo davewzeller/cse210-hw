@@ -10,7 +10,7 @@ public class EternalGoal : Goal
 
     public override bool IsComplete() => false;
 
-    public override string GetDetaillsString() =>
+    public override string GetDetailsString() =>
      "[Eternal] " + _shortName;
 
     public override string GetStringRepresentation() =>

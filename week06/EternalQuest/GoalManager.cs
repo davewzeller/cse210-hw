@@ -16,7 +16,8 @@ public class GoalManager
     {
         for (int i = 0; i < _goals.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {_goals[i]._shortName}");
+            Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
+
 
         }
 
@@ -26,7 +27,8 @@ public class GoalManager
     {
         foreach (var goal in _goals)
         {
-            Console.WriteLine(goal.GetDetaillsString());
+            Console.WriteLine(goal.GetDetailsString());
+
         }
     }
 

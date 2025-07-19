@@ -12,10 +12,10 @@ public abstract class Goal
         _points = points;
 
     }
-
+    public string GetName() => _shortName;
     public abstract int RecordEvent();
     public abstract bool IsComplete();
-    public abstract string GetDetaillsString();
+    public abstract string GetDetailsString();
     public abstract string GetStringRepresentation();
 
 }

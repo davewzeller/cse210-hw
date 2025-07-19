@@ -14,7 +14,7 @@ public class SimpleGoal : Goal
 
     public override bool IsComplete() => _isComplete;
 
-    public override string GetDetaillsString() =>
+    public override string GetDetailsString() =>
          $"{(_isComplete ? "[x]" : "[]")} {_shortName}";
 
     public override string GetStringRepresentation() =>
