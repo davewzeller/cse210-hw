@@ -11,6 +11,7 @@ class Program
         {
             Console.Clear();
             Console.WriteLine("-----The Eternal Quest Program -----");
+            manager.DisplayPlayerInfo();
             Console.WriteLine("\nMenu:");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List The Goals Details");
@@ -19,7 +20,6 @@ class Program
             Console.WriteLine("5. Load Goals");
             Console.WriteLine("6. Quit");
             Console.WriteLine("Pick and Option: ");
-            manager.DisplayPlayerInfo();
             string input = Console.ReadLine();
 
 
@@ -116,10 +116,28 @@ class Program
         Console.WriteLine("\nWhich goal did you accomplish?");
         manager.ListGoalNames();
         Console.Write("Goal #: ");
-        int index = int.Parse(Console.ReadLine()) - 1;
-       
-        Console.WriteLine("Event recorded!");
+
+        if (int.TryParse(Console.ReadLine(), out int index))
+        {
+            index -= 1;
+
+            if (index >= 0)
+            {
+                int earnedPoints = manager.RecordEvent(index);
+                Console.WriteLine($"Event recorded! You earned {earnedPoints} points.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid goal number.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number.");
+        }
     }
+
+
 
     static void Pause()
     {

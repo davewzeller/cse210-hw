@@ -11,16 +11,16 @@ public class SimpleGoal : Goal
         _isComplete = true;
         return _points;
     }
-    
+
     public override bool IsComplete() => _isComplete;
 
     public override string GetDetailsString() =>
-         $"{(_isComplete ? "[x]" : "")} {_shortName}";
+         "[Simple] " + _shortName;
 
     public override string GetStringRepresentation() =>
          $"SimpleGoal:{_shortName}|{_description}|{_points}|{_isComplete}";
 
-    
+
 }
 
 

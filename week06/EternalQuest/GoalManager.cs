@@ -4,20 +4,26 @@ public class GoalManager
 
 {
     private List<Goal> _goals = new();
-    private int _score = 6;
+    private int _score = 0;
     public void AddGoal(Goal goal) => _goals.Add(goal);
 
-    public void RecordEvent(int index)
+    public int RecordEvent(int index)
     {
         if (index >= 0 && index < _goals.Count)
         {
             int earnedPoints = _goals[index].RecordEvent();
             _score += earnedPoints;
+            return earnedPoints;
         }
+        return 0;
     }
+
+
+
 
     public void DisplayPlayerInfo()
     {
+    
     Console.WriteLine($"Score: {_score}");
     }
     public void ListGoalNames()
