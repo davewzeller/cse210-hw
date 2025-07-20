@@ -4,17 +4,22 @@ public class GoalManager
 
 {
     private List<Goal> _goals = new();
-    private int _score = 0;
+    private int _score = 6;
     public void AddGoal(Goal goal) => _goals.Add(goal);
 
     public void RecordEvent(int index)
     {
-        if (index > 0 && index < _goals.Count)
-            _score += _goals[index].RecordEvent();
+        if (index >= 0 && index < _goals.Count)
+        {
+            int earnedPoints = _goals[index].RecordEvent();
+            _score += earnedPoints;
+        }
     }
 
-    public void DisplayPlayerInfo() => Console.WriteLine($"Score: {_score}");
-
+    public void DisplayPlayerInfo()
+    {
+    Console.WriteLine($"Score: {_score}");
+    }
     public void ListGoalNames()
     {
         for (int i = 0; i < _goals.Count; i++)
@@ -40,48 +45,76 @@ public class GoalManager
     {
         using (StreamWriter writer = new StreamWriter(filename))
         {
-            writer.WriteLine(_score); // First line is the score
-            foreach (var goal in _goals)
+            writer.WriteLine(_score);
+            foreach (Goal goal in _goals)
             {
-                writer.WriteLine(goal.GetStringRepresentation()); // Custom format per goal type
+                writer.WriteLine(goal.GetStringRepresentation());
             }
+            
         }
     }
+
 
     public void LoadGoals(string filename)
     {
-        _goals.Clear();
-        string[] lines = File.ReadAllLines(filename);
-        _score = int.Parse(lines[0]);
-        for (int i = 1; i < lines.Length; i++)
+        try
         {
-            string line = lines[i];
-            string[] parts = line.Split(':');
-            string type = parts[0];
-            string[] data = parts[1].Split('|');
-
-            switch (type)
+            _goals.Clear(); 
+            using (StreamReader reader = new StreamReader(filename))
             {
-                case "SimpleGoal":
-                    _goals.Add(new SimpleGoal(data[0], data[1], int.Parse(data[2]))
+               
+                _score = int.Parse(reader.ReadLine());
+
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    string[] parts = line.Split(':');
+                    string type = parts[0];
+                    string[] data = parts[1].Split('|');
+
+                    switch (type)
                     {
+                        case "SimpleGoal":
+                            string nameS = data[0];
+                            string descS = data[1];
+                            int pointsS = int.Parse(data[2]);
+                            bool isCompleteS = bool.Parse(data[3]);
+                            var simpleGoal = new SimpleGoal(nameS, descS, pointsS);
+                            if (isCompleteS) simpleGoal.RecordEvent(); 
+                            _goals.Add(simpleGoal);
+                            break;
 
-                    });
-                    break;
+                        case "EternalGoal":
+                            string nameE = data[0];
+                            string descE = data[1];
+                            int pointsE = int.Parse(data[2]);
+                            _goals.Add(new EternalGoal(nameE, descE, pointsE));
+                            break;
 
-                case "EternalGoal":
-                    _goals.Add(new EternalGoal(data[0], data[1], int.Parse(data[2])));
-                    break;
+                        case "ChecklistGoal":
+                            string nameC = data[0].Trim();
+                            string descC = data[1].Trim();
+                            int pointsC = int.Parse(data[2].Trim());
+                            int targetC = int.Parse(data[3].Trim());
+                            int bonusC = int.Parse(data[4].Trim());
+                            int completedC = int.Parse(data[5].Trim());
+                            var checklistGoal = new ChecklistGoal(nameC, descC, pointsC, targetC, bonusC);
+                            checklistGoal.SetAmountCompleted(completedC);
+                            _goals.Add(checklistGoal);
+                            break;
 
-                case "ChecklistGoal":
-                    var checklist = new ChecklistGoal(data[0], data[1], int.Parse(data[2]),
-                                                      int.Parse(data[3]), int.Parse(data[4]));
-                    checklist.SetAmountCompleted(int.Parse(data[5]));
-                    _goals.Add(checklist);
-                    break;
-
+                        default:
+                            Console.WriteLine($"Unrecognized goal type: {type}");
+                            break;
+                    }
+                }
             }
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading goals: {ex.Message}");
+        }
     }
+
 
 }
