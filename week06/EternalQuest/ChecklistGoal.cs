@@ -14,7 +14,10 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
         _amountCompleted = 0;
     }
-
+    public void SetAmountCompleted(int amount)
+    {
+        _amountCompleted = amount;
+    }
     public override int RecordEvent()
     {
         _amountCompleted++;
