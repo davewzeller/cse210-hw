@@ -54,26 +54,27 @@ public class Journal
     Console.WriteLine("Journal saved.");
 }
 
-//Console.WriteLine("I hope this works. ");
-public static void LoadFromFile()
-{
-    Console.Write("Enter filename to load from: ");
-    string _filename = Console.ReadLine();
-
-    if (!File.Exists(_filename))
+    //Console.WriteLine("I hope this works. ");
+    public static void LoadFromFile()
     {
-        Console.WriteLine("File not found.\n");
-        return;
-    }
+        Console.Write("\nEnter filename to load from: ");
+        string _filename = Console.ReadLine();
 
-    string[] _lines = File.ReadAllLines(_filename);
-    _entries.Clear();
+        if (!File.Exists(_filename))
+        {
+            Console.WriteLine("File not found.\n");
+            return;
+        }
+
+        string[] _lines = File.ReadAllLines(_filename);
+        _entries.Clear();
 
         foreach (string _line in _lines)
         {
             Entry _entry = Entry.Deserialize(_line);
             _entries.Add(_entry);
         }
-    Console.WriteLine("Journal loaded successfully.");
+
+        Console.WriteLine("Journal loaded successfully.\n");
     }
 }

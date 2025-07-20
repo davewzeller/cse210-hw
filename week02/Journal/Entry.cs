@@ -25,7 +25,7 @@ public class Entry
         return $"{_date} | {_prompt} | {_response}";
     }
 
-    public static Entry Deserialized(string line)
+    public static Entry Deserialize(string line)
     {
         string[] _parts = line.Split("|");
         return new Entry(_parts[1], _parts[2]) { _date = _parts[0] };
