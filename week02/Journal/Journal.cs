@@ -1,103 +1,79 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
+using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Runtime.ExceptionServices;
-
 
 public class Journal
 {
 
-    private static List<string> entries = new List<string>();
+    private static List<Entry> _entries = new List<Entry>();
+
 
     public static void AddEntry()
     {
 
-        string entry = Entry.DisplayEntry();
-        entries.Add(entry);
+        string _prompt = PromptGenerator.GetRandomPrompt();
+        Console.WriteLine(_prompt);
+        Console.Write("Your answer: ");
+        string _response = Console.ReadLine();
+
+        Entry _newEntry = new Entry(_prompt, _response);
+        _entries.Add(_newEntry);
 
         //Entry.DisplayEntry();
         //List<string> _entry = new List<string>();
 
         //Console.WriteLine(result);
-
-
-
     }
 
     public static void DisplayAll()
 
     {
-        Console.WriteLine();
-        if (entries.Count == 0)
+        Console.WriteLine("\n--- Journal Entries --- \n");
+        if (_entries.Count == 0)
         {
-            Console.WriteLine("didn't find anything");
+            Console.WriteLine("Didn't find anything.");
         }
-        else
+        foreach (Entry _entry in _entries)
         {
-            foreach (string entry in entries)
-            {
-                Console.WriteLine(entry);
-            }
+            Console.WriteLine(_entry.GetDisplay());
         }
-       // Console.WriteLine("Display");
-        Console.WriteLine();
-
     }
 
     public static void SaveToFile()
-    {
-        string _mytext;
-
-        Console.WriteLine("What file do you want to save to? ");
-        _mytext = Console.ReadLine();
-
-        using (StreamWriter outputFile = new StreamWriter(_mytext))
         {
-            foreach (string entry in entries)
+        Console.Write("Enter filename to save to: ");
+        string _filename = Console.ReadLine();
+
+        using (StreamWriter _writer = new StreamWriter(_filename))
+        {
+             foreach (Entry _entry in _entries)
             {
-
-                outputFile.WriteLine(entry);
-                // Console.WriteLine();
-
-
+                _writer.WriteLine(_entry.Serialize());
             }
-            Console.WriteLine();
-            Console.Clear(); 
-            //outputFile.WriteLine($" how are you today?");
-        }
+    }
+    Console.WriteLine("Journal saved.");
+}
 
+//Console.WriteLine("I hope this works. ");
+public static void LoadFromFile()
+{
+    Console.Write("Enter filename to load from: ");
+    string _filename = Console.ReadLine();
 
-        //Console.WriteLine("I hope this works. ");
-
-        //return;
+    if (!File.Exists(_filename))
+    {
+        Console.WriteLine("File not found.\n");
+        return;
     }
 
-    static public void LoadFromFile()
-    {
+    string[] _lines = File.ReadAllLines(_filename);
+    _entries.Clear();
 
-        Console.WriteLine("what file do you want to read? ");
-        string _fileName = Console.ReadLine();
-
-
-
-        if (File.Exists(_fileName))
+        foreach (string _line in _lines)
         {
-            string[] lines = System.IO.File.ReadAllLines(_fileName);
-            foreach (string line in lines)
-            {
-
-                // string date = parts[0];
-                entries.Add(line);
-                //Console.WriteLine(line);
-
-            }
-
+            Entry _entry = Entry.Deserialize(_line);
+            _entries.Add(_entry);
         }
-        
-        // took too long to locate this missing bracket 
+    Console.WriteLine("Journal loaded successfully.");
     }
-
-  
 }
