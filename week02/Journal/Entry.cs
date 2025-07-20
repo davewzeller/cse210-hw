@@ -1,40 +1,30 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.IO;
-using System.Text;
 public class Entry
 {
-    public string _date;
-    public string _entryText;
+    public string _date { get; set; }
+    public string _prompt { get; set; }
+    public string _response { get; set; }
 
-
-    public string _entries;
-    private List<Entry> entries = new List<Entry>();
-    public static string DisplayEntry()
+    public Entry(string prompt, string response)
     {
-        DateTime now = DateTime.Now;
+        _date = DateTime.Now.ToString("MMMM dd, yyyy - hh:mm tt");
+        _prompt = prompt;
+        _response = response;
+    }
 
+    public string GetDisplay()
+    {
+        return $"{_date}\nPrompt: {_prompt}\nResponse: {_response}\n";
+    }
 
-        string _date = now.ToString("MMMM dd, yyyy");
+    public string Serialize()
+    {
+        return $"{_date} | {_prompt} | {_response}";
+    }
 
-        Console.WriteLine($"{_date}");
-        string _prompt = PromptGenerator._prompt();
-        
-        string _entryText = Console.ReadLine();
-
-        StringBuilder SB = new StringBuilder();
-
-
-        SB.Append($"{_date}");
-        SB.Append($" {_prompt}");
-        SB.Append($": {_entryText}");
-
-        string result = SB.ToString();
-
-
-        Console.WriteLine(result);
-        return result;
+    public static Entry Deserialized(string line)
+    {
+        string[] _parts = line.Split("|");
+        return new Entry(_parts[1], _parts[2]) { _date = _parts[0] };
     }
 }
+   
