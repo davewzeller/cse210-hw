@@ -7,8 +7,8 @@ class Program
 
         List<Activity> activities = new List<Activity>
         {
-            new Running("03 Nov 2025", 30, 4.8)
-   //         new Cycling("21 July 2025", 30, 35),
+            new Running("03 Nov 2025", 30, 28),
+            new Cycling("21 July 2025", 30, 183.9) 
    //         new Swimming("24 Aug 2025", 30, 20)
 
 
